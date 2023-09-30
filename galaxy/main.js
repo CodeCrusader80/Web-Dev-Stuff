@@ -1,16 +1,21 @@
 import * as THREE from 'three'
 
-import {CompositionShader} from "./shaders";
-import {BASE_LAYER, BLOOM_LAYER, BLOOM_PARAMS, OVERLAY_LAYER} from "./configuration/renderConfiguration";
-import {MapControls} from "three/addons/controls/MapControls";
-import {EffectComposer} from "three/addons/postprocessing/EffectComposer";
-import {RenderPass} from "three/addons/postprocessing/RenderPass";
-import {UnrealBloomPass} from "three/addons/postprocessing/UnrealBloomPass";
-import {ShaderPass} from "three/addons/postprocessing/ShaderPass";
-import {Galaxy} from "./object/galaxy";
-import renderPipeline from "three/addons/renderers/common/RenderPipeline";
+// Data and visualization
+import { CompositionShader} from "./shaders";
+import { BASE_LAYER, BLOOM_LAYER, BLOOM_PARAMS, OVERLAY_LAYER} from "./configuration/renderConfiguration";
+
+// Rendering
+import { MapControls } from 'three/addons/controls/OrbitControls.js'
+
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+import { Galaxy} from "./object/galaxy";
 
 let canvas, renderer, camera, scene, orbit, baseComposer, bloomComposer, overlayComposer
+
 
 function initThree() {
     canvas = document.querySelector('#canvas');
