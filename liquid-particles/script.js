@@ -3,10 +3,16 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+const canvas1 = document.getElementById('canvas1');
+const ctx1 = canvas1.getContext('2d');
+canvas1.width = window.innerWidth;
+canvas1.height = window.innerHeight;
+
 class Particles {
     constructor(effect) {
         this.effect = effect;
         this.radius = Math.floor(Math.random() * 15 + 10);
+        this.buffer = this.radius * 4;
         this.x = this.radius + Math.random() * (this.effect.width - this.radius * 2);
         this.y = this.radius + Math.random() * (this.effect.height - this.radius * 2);
         this.vx = Math.random() - 0.6;
@@ -16,11 +22,8 @@ class Particles {
         this.friction = 1;
     }
     draw(context) {
-        const particlescolors = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-        particlescolors.addColorStop(0, '#a020f0');
-        particlescolors.addColorStop(0.5, '#ff9a4d');
-        particlescolors.addColorStop(1, '#c0c0c0');
-        ctx.fillStyle = particlescolors;
+        ctx.fillStyle = 'white';
+        ctx.strokeStyle = 'white';
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         context.fill();
@@ -41,18 +44,18 @@ class Particles {
         this.y += (this.pushY + this.vy) * this.friction;
 
 
-        if(this.x < this.radius) {
-            this.x = this.radius;
+        if(this.x < this.buffer) {
+            this.x = this.buffer;
             this.vx *= -1;
-        } else if (this.x > this.effect.width - this.radius){
-            this.x = this.effect.width - this.radius;
+        } else if (this.x > this.effect.width - this.buffer){
+            this.x = this.effect.width - this.buffer;
             this.vx *= -1;
         }
-        if(this.y < this.radius) {
-            this.y = this.radius;
+        if(this.y < this.buffer) {
+            this.y = this.buffer;
             this.vy *= -1;
-        } else if (this.y > this.effect.height - this.radius){
-            this.y = this.effect.height - this.radius;
+        } else if (this.y > this.effect.height - this.buffer){
+            this.y = this.effect.height - this.buffer;
             this.vy *= -1;
         }
         this.pushX = 0;
@@ -70,7 +73,7 @@ class Effect {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.particles = []
-        this.number = 100;
+        this.number = 200;
         this.createParticles();
         this.mouse = {
             x: 0,
@@ -165,7 +168,7 @@ const effect = new Effect(canvas, ctx);
 
 function animate() {
     ctx.clearRect(0,0,canvas.width, canvas.height)
-    effect.liftParticles(ctx);
+    effect.liftParticles(ctx, ctx1);
     requestAnimationFrame(animate)
 }
 animate()
