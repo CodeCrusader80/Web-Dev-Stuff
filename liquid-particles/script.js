@@ -11,15 +11,15 @@ canvas1.height = window.innerHeight;
 class Particles {
     constructor(effect) {
         this.effect = effect;
-        this.radius = Math.floor(Math.random() * 15 + 10);
+        this.radius = Math.floor(Math.random() * 25 + 10);
         this.buffer = this.radius * 4;
         this.x = this.radius + Math.random() * (this.effect.width - this.radius * 2);
         this.y = this.radius + Math.random() * (this.effect.height - this.radius * 2);
-        this.vx = Math.random() - 0.6;
-        this.vy = Math.random() - 0.6;
+        this.vx = Math.random() - 0.5;
+        this.vy = Math.random() - 0.5;
         this.pushX = 0;
         this.pushY = 0;
-        this.friction = 1;
+        this.friction = 2;
     }
     draw(context) {
         ctx.fillStyle = 'white';
@@ -33,11 +33,11 @@ class Particles {
             const dx = this.x - this.effect.mouse.x;
             const dy = this.y - this.effect.mouse.y;
             const dist = Math.hypot(dx, dy);
-            const strong = (this.effect.mouse.radius / dist);
+            const strong = (dist / this.effect.mouse.radius);
             if(dist < this.effect.mouse.radius){
                 const angle = Math.atan2(dy, dx);
-                this.pushX += Math.cos(angle) * strong;
-                this.pushY += Math.sin(angle) * strong;
+                this.pushX -= Math.cos(angle) * strong;
+                this.pushY -= Math.sin(angle) * strong;
             }
         }
         this.x += (this.pushX + this.vx) * this.friction;
@@ -88,8 +88,8 @@ class Effect {
             this.particles.push(new Particles(this));
         }
     }
-    liftParticles(context) {
-        this.particlesHold(context);
+    liftParticles(context, context1) {
+        this.particlesHold(context1);
         this.particles.forEach(particle => {
             particle.draw(context);
             particle.reform();
@@ -168,6 +168,7 @@ const effect = new Effect(canvas, ctx);
 
 function animate() {
     ctx.clearRect(0,0,canvas.width, canvas.height)
+    ctx1.clearRect(0,0,canvas1.width, canvas1.height)
     effect.liftParticles(ctx, ctx1);
     requestAnimationFrame(animate)
 }
