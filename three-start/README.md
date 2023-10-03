@@ -1,8 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h1 align="center">THREE Starter</h1>
+<p>Small starter type structure which allows you to quickly start creating a 3D scene with the help of THREE.JS. Some basic parameters are already included with this structure. Allowing you to concentrate more quickly on developing the animation. Everything works with React, VITE for a quick build and of course THREEJS. So don't forget to do a little npm install to recover all the dependencies linked to this structure and thus be able to use it. The advantage being that React allows greater speed in the creation and display of animation of this type, but in itself nothing obliges you to use React, and you can even switch it to Vanilla with VITE for example or another bundler type webpack etc... as long as you don't forget to link the html with the basic JS code which is app.js.</p>
+<hr>
+<p>In its raw state, this code will display a square that changes colors and rotates on an x and y, axis at a speed of 200 ms. You can of course adapt this, I also thought about forcing the canvas to take a width and height of 100vw and 100vh so that it is also compatible with Safari which uses particular methods in managing canvas sizes and especially for this sort of thing. Likewise, I implemented a small function allowing the resize of the display, be careful this does not dynamically modify the size of the shape that you can create. It just makes sure to keep this shape as much as possible in the center of the window regardless of its size and always keeping the maximum width and height of the window.</p>
