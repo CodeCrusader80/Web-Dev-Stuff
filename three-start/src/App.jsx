@@ -14,7 +14,7 @@ function App() {
     }, []);
 
     return (
-        <div className={"container"} ref={containerRef}>
+        <div ref={containerRef}>
         </div>
     );
 }
