@@ -51,8 +51,6 @@ body {
 
 .card:nth-child(2) > .img {
     background-image: url("./assets/img2.png");
-    background-size: 140%;
-    background-position: 50% 50%;
     filter: grayscale(0);
 }
 
