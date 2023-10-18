@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #2E0854;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grille {
+    width: min-content;
+    display: grid;
+    grid-auto-rows: 300px;
+    gap: 10px;
+}
+
+.card {
+
+}
