@@ -18,9 +18,7 @@
 }
 
 .close {
-    z-index: 10;
     cursor: pointer;
-    width: 170px;
 }
 
 .nav {
@@ -42,6 +40,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
+    border: none;
 }
 
 .nav {
@@ -51,7 +51,10 @@
 }
 
 img {
-    max-width: 170px;
+    width: 170px;
     height: auto;
+    margin: 0;
+    padding: 0;
     display: block;
+    background: white;
 }
