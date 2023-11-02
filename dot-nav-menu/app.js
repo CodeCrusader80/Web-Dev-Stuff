@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeButton.addEventListener('click', () => {
         // Active la grille si elle est masquée, sinon la masque
-        const isScaled = nav.style.transform === 'scale(1)';
-        nav.style.transform = isScaled ? 'scale(0)' : 'scale(1)';
+        const isScaled = nav.style.transform.includes('scale(1)');
+        nav.style.transform = isScaled ? 'translate(-50%, -50%) scale(0)' : 'translate(-50%, -50%) scale(1)';
     });
 });
