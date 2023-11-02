@@ -15,6 +15,7 @@
 
 .close, .nav {
     position: absolute;
+    display: block;
 }
 
 .close {
@@ -23,13 +24,15 @@
 
 .nav {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3, 2fr);
+    grid-template-rows: repeat(3, 2fr);
+    gap: 5px;
     transform: scale(0);
     transition: transform 0.3s ease;
     width: calc(170px * 3);
     height: calc(170px * 3);
+    justify-content: center;
+    align-items: center;
 }
 
 .nav span:nth-child(5) {
@@ -41,7 +44,7 @@
     justify-content: center;
     align-items: center;
     z-index: 10;
-    border: none;
+    border: 1px solid grey;
 }
 
 .nav {
@@ -53,8 +56,5 @@
 img {
     width: 170px;
     height: auto;
-    margin: 0;
-    padding: 0;
     display: block;
-    background: white;
 }
