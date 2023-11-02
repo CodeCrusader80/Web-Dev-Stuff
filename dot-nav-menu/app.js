@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav');
 
     closeButton.addEventListener('click', () => {
-        const isScaled = nav.style.transform.includes('scale(1)');
-        nav.style.transform = isScaled ? 'translate(-50%, -50%) scale(0)' : 'translate(-50%, -50%) scale(1)';
+        const isScaled = nav.style.transform.includes('scale(0.7)');
+        nav.style.transform = isScaled ? 'translate(-50%, -50%) scale(0)' : 'translate(-50%, -50%) scale(0.7)';
     });
 });

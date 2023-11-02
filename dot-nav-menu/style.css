@@ -20,6 +20,7 @@
 .close {
     z-index: 10;
     cursor: pointer;
+    width: 170px;
 }
 
 .nav {
