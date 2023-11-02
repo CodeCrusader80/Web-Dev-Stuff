@@ -1,0 +1,61 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.close, .nav {
+    position: absolute;
+}
+
+.close {
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* Grid spécifique pour .nav */
+.nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    width: calc(170px * 3); /* Remplacer 100px par la largeur de tes images */
+    height: calc(170px * 3); /* Remplacer 100px par la hauteur de tes images */
+}
+
+/* Cacher les spans qui ne sont pas dans les coins ou sur les côtés */
+.nav span:nth-child(5) {
+    visibility: hidden;
+}
+
+/* Spécifier les positions initiales des images */
+.nav span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pour placer le bouton close au centre */
+.nav {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+/* Pour les images */
+img {
+    max-width: 170px;
+    height: auto;
+    display: block;
+}
