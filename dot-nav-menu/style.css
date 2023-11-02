@@ -47,6 +47,11 @@
     border: 1px solid grey;
 }
 
+.nav span:hover {
+    background: coral;
+    border: none;
+}
+
 .nav {
     top: 50%;
     left: 50%;
